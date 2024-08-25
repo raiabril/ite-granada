@@ -1,0 +1,4692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mapa con edificios pendientes de ITE</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+	integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+	<!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+	integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+	crossorigin=""></script>
+
+</head>
+<body>
+	<div id="map" style="height: 98vh;"></div>
+	<script>
+		var map = L.map('map').setView([37.18817, -3.60667], 15);
+		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    		maxZoom: 19,
+    		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}).addTo(map);
+			const locations = [
+    
+    {
+        "lat": 37.2231049,
+        "lon": -3.6849243,
+        "name": "Avenida ANDALUCIA,97, Granada",
+        "id": "4667101"
+    },
+    {
+        "lat": 37.1885831,
+        "lon": -3.6192867,
+        "name": "Calle TRUCHA,4, Granada",
+        "id": "5161102"
+    },
+    {
+        "lat": 37.1783365,
+        "lon": -3.6124069,
+        "name": "Calle ARABIAL,81, Granada",
+        "id": "5848301"
+    },
+    {
+        "lat": 37.1623796,
+        "lon": -3.5481634,
+        "name": "Calle CA\u00d1AVERAL,3, Granada",
+        "id": "5850302"
+    },
+    {
+        "lat": 37.1779337,
+        "lon": -3.6103682,
+        "name": "Calle MENDEZ NU\u00d1EZ,8, Granada",
+        "id": "5850305"
+    },
+    
+    {
+        "lat": 37.1929906,
+        "lon": -3.6100728,
+        "name": "Calle LAS MADRO\u00d1ERAS,13, Granada",
+        "id": "5967301"
+    },
+    {
+        "lat": 37.1933347,
+        "lon": -3.6099635,
+        "name": "Calle YERBAGUENA,12, Granada",
+        "id": "6067804"
+    },
+    {
+        "lat": 37.1982732,
+        "lon": -4.0407603,
+        "name": "Calle EMPERATRIZ EUGENIA,19, Granada",
+        "id": "6146201"
+    },
+    {
+        "lat": 37.1924418,
+        "lon": -3.6104923,
+        "name": "Calle MANOLETE,3, Granada",
+        "id": "6166802"
+    },
+    {
+        "lat": 37.1783365,
+        "lon": -3.6124069,
+        "name": "Calle ARABIAL,36, Granada",
+        "id": "6242501"
+    },
+    
+    {
+        "lat": 37.2068206,
+        "lon": -3.6070248,
+        "name": "Calle TORREDELCAMPO,4, Granada",
+        "id": "6282301"
+    },
+    
+    {
+        "lat": 37.2058557,
+        "lon": -3.6050607,
+        "name": "Calle PUERTO LUMBRERAS,0, Granada",
+        "id": "6381224"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,28, Granada",
+        "id": "6382101"
+    },
+    {
+        "lat": 37.2675085,
+        "lon": -3.9119043,
+        "name": "Calle ELCANO,19, Granada",
+        "id": "6382102"
+    },
+    {
+        "lat": 37.2675085,
+        "lon": -3.9119043,
+        "name": "Calle ELCANO,17, Granada",
+        "id": "6382103"
+    },
+    {
+        "lat": 37.2675085,
+        "lon": -3.9119043,
+        "name": "Calle ELCANO,15, Granada",
+        "id": "6382104"
+    },
+    {
+        "lat": 36.75205835,
+        "lon": -3.5161452136679965,
+        "name": "Calle ELCANO,13, Granada",
+        "id": "6382105"
+    },
+    {
+        "lat": 36.7519817,
+        "lon": -3.516153794832682,
+        "name": "Calle ELCANO,11, Granada",
+        "id": "6382106"
+    },
+    {
+        "lat": 36.75190655,
+        "lon": -3.5161590472122026,
+        "name": "Calle ELCANO,9, Granada",
+        "id": "6382107"
+    },
+    {
+        "lat": 36.751828950000004,
+        "lon": -3.5161675990133228,
+        "name": "Calle ELCANO,7, Granada",
+        "id": "6382108"
+    },
+    {
+        "lat": 36.75175285,
+        "lon": -3.516175769839127,
+        "name": "Calle ELCANO,5, Granada",
+        "id": "6382109"
+    },
+    
+    {
+        "lat": 36.7516021,
+        "lon": -3.5161911701535447,
+        "name": "Calle ELCANO,1, Granada",
+        "id": "6382111"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,20, Granada",
+        "id": "6382117"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,22, Granada",
+        "id": "6382118"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,24, Granada",
+        "id": "6382119"
+    },
+    
+    {
+        "lat": 36.7518837,
+        "lon": -3.5159517141522034,
+        "name": "Calle ELCANO,10, Granada",
+        "id": "6382202"
+    },
+    
+    {
+        "lat": 36.7518088,
+        "lon": -3.515960182006644,
+        "name": "Calle ELCANO,8, Granada",
+        "id": "6382204"
+    },
+    
+    {
+        "lat": 37.2312978,
+        "lon": -3.7241964,
+        "name": "Calle JUAN DE AUSTRIA,11, Granada",
+        "id": "6382207"
+    },
+    {
+        "lat": 36.751656100000005,
+        "lon": -3.515976382859378,
+        "name": "Calle ELCANO,4, Granada",
+        "id": "6382208"
+    },
+    {
+        "lat": 37.2312468,
+        "lon": -3.724278,
+        "name": "Calle JUAN DE AUSTRIA,9, Granada",
+        "id": "6382209"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,22, Granada",
+        "id": "6382301"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,20, Granada",
+        "id": "6382303"
+    },
+    {
+        "lat": 37.9621922,
+        "lon": -2.4403028,
+        "name": "Calle PEDRO GUTIERREZ,7, Granada",
+        "id": "6382304"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,18, Granada",
+        "id": "6382305"
+    },
+    {
+        "lat": 37.9621922,
+        "lon": -2.4403028,
+        "name": "Calle PEDRO GUTIERREZ,5, Granada",
+        "id": "6382306"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,16, Granada",
+        "id": "6382307"
+    },
+    {
+        "lat": 37.9621922,
+        "lon": -2.4403028,
+        "name": "Calle PEDRO GUTIERREZ,3, Granada",
+        "id": "6382308"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,14, Granada",
+        "id": "6382309"
+    },
+    {
+        "lat": 37.9621922,
+        "lon": -2.4403028,
+        "name": "Calle PEDRO GUTIERREZ,1, Granada",
+        "id": "6382310"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,8, Granada",
+        "id": "6382401"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,17, Granada",
+        "id": "6382402"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,15, Granada",
+        "id": "6382403"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,11, Granada",
+        "id": "6382405"
+    },
+    {
+        "lat": 37.2311972,
+        "lon": -3.7243582,
+        "name": "Calle JUAN DE AUSTRIA,7, Granada",
+        "id": "6382406"
+    },
+    {
+        "lat": 37.231151,
+        "lon": -3.7244326,
+        "name": "Calle JUAN DE AUSTRIA,5, Granada",
+        "id": "6382407"
+    },
+    {
+        "lat": 37.2310688,
+        "lon": -3.7245644,
+        "name": "Calle JUAN DE AUSTRIA,3, Granada",
+        "id": "6382408"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle Bartolome Roldan,s/n, Granada",
+        "id": "6382409"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,14, Granada",
+        "id": "6382410"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,16, Granada",
+        "id": "6382411"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,20, Granada",
+        "id": "6382413"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,2, Granada",
+        "id": "6382414"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,4, Granada",
+        "id": "6382415"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,6, Granada",
+        "id": "6382416"
+    },
+    {
+        "lat": 37.1528143,
+        "lon": -3.6037983,
+        "name": "Calle XAUEN,33, Granada",
+        "id": "6422402"
+    },
+    {
+        "lat": 36.7455319,
+        "lon": -3.513240496807173,
+        "name": "Calle MANUEL DE FALLA,18, Granada",
+        "id": "6441008"
+    },
+    
+    {
+        "lat": 36.7532312,
+        "lon": -3.5201559201680603,
+        "name": "Calle JUAN DE AUSTRIA,20, Granada",
+        "id": "6482001"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,11, Granada",
+        "id": "6482002"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,9, Granada",
+        "id": "6482003"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,5, Granada",
+        "id": "6482005"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,3, Granada",
+        "id": "6482006"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,1, Granada",
+        "id": "6482007"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,27, Granada",
+        "id": "6482009"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,25, Granada",
+        "id": "6482010"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,23, Granada",
+        "id": "6482011"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,2, Granada",
+        "id": "6482012"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,4, Granada",
+        "id": "6482013"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,8, Granada",
+        "id": "6482015"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,10, Granada",
+        "id": "6482016"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,12, Granada",
+        "id": "6482017"
+    },
+    {
+        "lat": 36.75303575,
+        "lon": -3.520005685812389,
+        "name": "Calle JUAN DE AUSTRIA,14, Granada",
+        "id": "6482018"
+    },
+    {
+        "lat": 36.7531372,
+        "lon": -3.5200434894736845,
+        "name": "Calle JUAN DE AUSTRIA,16, Granada",
+        "id": "6482019"
+    },
+    {
+        "lat": 36.753167149999996,
+        "lon": -3.5201116987947576,
+        "name": "Calle JUAN DE AUSTRIA,18, Granada",
+        "id": "6482020"
+    },
+    
+    {
+        "lat": 36.7528214,
+        "lon": -3.5199460897905768,
+        "name": "Calle JUAN DE AUSTRIA,12, Granada",
+        "id": "6482501"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,9, Granada",
+        "id": "6482502"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,7, Granada",
+        "id": "6482503"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,5, Granada",
+        "id": "6482504"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,3, Granada",
+        "id": "6482505"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,1, Granada",
+        "id": "6482506"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,21, Granada",
+        "id": "6482507"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,19, Granada",
+        "id": "6482508"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,17, Granada",
+        "id": "6482509"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,15, Granada",
+        "id": "6482510"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,4, Granada",
+        "id": "6482511"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,6, Granada",
+        "id": "6482512"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,8, Granada",
+        "id": "6482513"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,10, Granada",
+        "id": "6482514"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,12, Granada",
+        "id": "6482515"
+    },
+    {
+        "lat": 36.7526142,
+        "lon": -3.520260796124927,
+        "name": "Calle JUAN DE AUSTRIA,8, Granada",
+        "id": "6482517"
+    },
+    {
+        "lat": 36.752706200000006,
+        "lon": -3.5201260844492026,
+        "name": "Calle JUAN DE AUSTRIA,10, Granada",
+        "id": "6482518"
+    },
+    
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,15, Granada",
+        "id": "6482802"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,13, Granada",
+        "id": "6482803"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,11, Granada",
+        "id": "6482804"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,9, Granada",
+        "id": "6482805"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,7, Granada",
+        "id": "6482806"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,5, Granada",
+        "id": "6482807"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,37, Granada",
+        "id": "6482808"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,35, Granada",
+        "id": "6482809"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,33, Granada",
+        "id": "6482810"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,31, Granada",
+        "id": "6482811"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,4, Granada",
+        "id": "6482813"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,6, Granada",
+        "id": "6482814"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,10, Granada",
+        "id": "6482816"
+    },
+    
+    
+    
+    
+    {
+        "lat": 37.154592,
+        "lon": -3.6033145,
+        "name": "Calle IMPERIO,32, Granada",
+        "id": "6524506"
+    },
+    {
+        "lat": 37.805812,
+        "lon": -2.542075,
+        "name": "Calle JARDINES,34, Granada",
+        "id": "6545811"
+    },
+    {
+        "lat": 37.1742763,
+        "lon": -3.6022923,
+        "name": "Calle PUENTEZUELAS,51, Granada",
+        "id": "6547402"
+    },
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO N\u00ba 8,, Granada",
+        "id": "6583401"
+    },
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,23, Granada",
+        "id": "6583402"
+    },
+    
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,13, Granada",
+        "id": "6583407"
+    },
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,11, Granada",
+        "id": "6583408"
+    },
+    
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,5, Granada",
+        "id": "6583415"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,3, Granada",
+        "id": "6583416"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,48, Granada",
+        "id": "6583421"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,50, Granada",
+        "id": "6583422"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,52, Granada",
+        "id": "6583423"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,54, Granada",
+        "id": "6583424"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,56, Granada",
+        "id": "6583425"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,58, Granada",
+        "id": "6583426"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,60, Granada",
+        "id": "6583427"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,62, Granada",
+        "id": "6583428"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,64, Granada",
+        "id": "6583429"
+    },
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,4, Granada",
+        "id": "6583431"
+    },
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,6, Granada",
+        "id": "6583432"
+    },
+    {
+        "lat": 37.1558745,
+        "lon": -3.6018375,
+        "name": "Calle SOL Y LUNA,0, Granada",
+        "id": "6626506"
+    },
+    {
+        "lat": 37.1558745,
+        "lon": -3.6018375,
+        "name": "Calle SOL Y LUNA,20, Granada",
+        "id": "6626509"
+    },
+    {
+        "lat": 37.170301,
+        "lon": -3.6027712,
+        "name": "Calle tejeiro, 2,, Granada",
+        "id": "6643003"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,36, Granada",
+        "id": "6681601"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,2, Granada",
+        "id": "6681602"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,6, Granada",
+        "id": "6681604"
+    },
+    
+    {
+        "lat": 37.1394388,
+        "lon": -3.6609839,
+        "name": "Calle JUAN DE LA COSA,11, Granada",
+        "id": "6681608"
+    },
+    {
+        "lat": 37.1394388,
+        "lon": -3.6609839,
+        "name": "Calle JUAN DE LA COSA,7, Granada",
+        "id": "6681610"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,9, Granada",
+        "id": "6681612"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,7, Granada",
+        "id": "6681613"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,3, Granada",
+        "id": "6681615"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,32, Granada",
+        "id": "6681617"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,4, Granada",
+        "id": "6681703"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,6, Granada",
+        "id": "6681705"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,5, Granada",
+        "id": "6681706"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,8, Granada",
+        "id": "6681707"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,10, Granada",
+        "id": "6681709"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,9, Granada",
+        "id": "6681710"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,11, Granada",
+        "id": "6681712"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,14, Granada",
+        "id": "6681713"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,13, Granada",
+        "id": "6681714"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,16, Granada",
+        "id": "6681715"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,18, Granada",
+        "id": "6681717"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,17, Granada",
+        "id": "6681718"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,20, Granada",
+        "id": "6681719"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,21, Granada",
+        "id": "6681722"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,4, Granada",
+        "id": "6682202"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,6, Granada",
+        "id": "6682203"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,8, Granada",
+        "id": "6682204"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,12, Granada",
+        "id": "6682206"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,14, Granada",
+        "id": "6682207"
+    },
+    {
+        "lat": 37.2071383,
+        "lon": -3.601984,
+        "name": "Calle JUAN NI\u00d1O,5, Granada",
+        "id": "6682211"
+    },
+    {
+        "lat": 37.2071383,
+        "lon": -3.601984,
+        "name": "Calle JUAN NI\u00d1O,3, Granada",
+        "id": "6682212"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,41, Granada",
+        "id": "6682214"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,39, Granada",
+        "id": "6682215"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,37, Granada",
+        "id": "6682216"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,35, Granada",
+        "id": "6682217"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,33, Granada",
+        "id": "6682218"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,31, Granada",
+        "id": "6682219"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,29, Granada",
+        "id": "6682220"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,27, Granada",
+        "id": "6682221"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,25, Granada",
+        "id": "6682222"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,2, Granada",
+        "id": "6682223"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,4, Granada",
+        "id": "6682224"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,8, Granada",
+        "id": "6682226"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,9, Granada",
+        "id": "6682801"
+    },
+    {
+        "lat": 37.2072727,
+        "lon": -3.6034394,
+        "name": "Calle SACRATIF,2, Granada",
+        "id": "6682802"
+    },
+    {
+        "lat": 37.2072727,
+        "lon": -3.6034394,
+        "name": "Calle SACRATIF,4, Granada",
+        "id": "6682804"
+    },
+    {
+        "lat": 37.2072727,
+        "lon": -3.6034394,
+        "name": "Calle SACRATIF,6, Granada",
+        "id": "6682806"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,15, Granada",
+        "id": "6682807"
+    },
+    {
+        "lat": 37.2072727,
+        "lon": -3.6034394,
+        "name": "Calle SACRATIF,8, Granada",
+        "id": "6682808"
+    },
+    
+    
+    
+    
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,36, Granada",
+        "id": "6683306"
+    },
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,38, Granada",
+        "id": "6683307"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,23, Granada",
+        "id": "6683310"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,21, Granada",
+        "id": "6683311"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,19, Granada",
+        "id": "6683312"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,17, Granada",
+        "id": "6683313"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,15, Granada",
+        "id": "6683314"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,13, Granada",
+        "id": "6683315"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,11, Granada",
+        "id": "6683316"
+    },
+    
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,7, Granada",
+        "id": "6683318"
+    },
+    
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,3, Granada",
+        "id": "6683320"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,13, Granada",
+        "id": "6683503"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,9, Granada",
+        "id": "6683505"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,7, Granada",
+        "id": "6683506"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,5, Granada",
+        "id": "6683507"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,3, Granada",
+        "id": "6683508"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,1, Granada",
+        "id": "6683509"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,23, Granada",
+        "id": "6683510"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,21, Granada",
+        "id": "6683511"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,19, Granada",
+        "id": "6683512"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,17, Granada",
+        "id": "6683513"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,2, Granada",
+        "id": "6683514"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,6, Granada",
+        "id": "6683516"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,16, Granada",
+        "id": "6683521"
+    },
+    
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,22, Granada",
+        "id": "6683524"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,25, Granada",
+        "id": "6683602"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,19, Granada",
+        "id": "6683605"
+    },
+    
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,5, Granada",
+        "id": "6683612"
+    },
+    
+    
+    
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,10, Granada",
+        "id": "6683619"
+    },
+    
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,16, Granada",
+        "id": "6683622"
+    },
+    
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,28, Granada",
+        "id": "6683628"
+    },
+    {
+        "lat": 36.749420900000004,
+        "lon": -3.515736545100907,
+        "name": "Calle ECUADOR,2, Granada",
+        "id": "6725034"
+    },
+    {
+        "lat": 37.15564,
+        "lon": -3.6020579,
+        "name": "Calle CARMEN DE ICAZA,12, Granada",
+        "id": "6725120"
+    },
+    {
+        "lat": 37.1565003,
+        "lon": -3.6010313,
+        "name": "Calle HERMANOS CARAZO,26, Granada",
+        "id": "6726224"
+    },
+    {
+        "lat": 37.1558745,
+        "lon": -3.6018375,
+        "name": "Calle SOL Y LUNA,10, Granada",
+        "id": "6726516"
+    },
+    
+    {
+        "lat": 37.1576795,
+        "lon": -3.6010231,
+        "name": "Calle LAUREADO LOPEZ MU\u00d1OZ,21, Granada",
+        "id": "6727206"
+    },
+    {
+        "lat": 37.1576795,
+        "lon": -3.6010231,
+        "name": "Calle LAUREADO LOPEZ MU\u00d1OZ,19, Granada",
+        "id": "6727207"
+    },
+    {
+        "lat": 37.1576795,
+        "lon": -3.6010231,
+        "name": "Calle LAUREADO LOPEZ MU\u00d1OZ,11, Granada",
+        "id": "6727210"
+    },
+    {
+        "lat": 36.752604250000005,
+        "lon": -3.5167440922873006,
+        "name": "Calle CONCHA ESPINA,2, Granada",
+        "id": "6727218"
+    },
+    {
+        "lat": 37.1570679,
+        "lon": -3.6003556,
+        "name": "Calle CONCHA ESPINA,24, Granada",
+        "id": "6727228"
+    },
+    
+    {
+        "lat": 37.2064069,
+        "lon": -3.6014258,
+        "name": "Calle DIEGO LORENZO,2, Granada",
+        "id": "6781301"
+    },
+    {
+        "lat": 37.2064069,
+        "lon": -3.6014258,
+        "name": "Calle DIEGO LORENZO,4, Granada",
+        "id": "6781302"
+    },
+    {
+        "lat": 37.2064069,
+        "lon": -3.6014258,
+        "name": "Calle DIEGO LORENZO,6, Granada",
+        "id": "6781303"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,9, Granada",
+        "id": "6781304"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,7, Granada",
+        "id": "6781305"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,5, Granada",
+        "id": "6781306"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,3, Granada",
+        "id": "6781307"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,1, Granada",
+        "id": "6781308"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,35, Granada",
+        "id": "6781309"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,17, Granada",
+        "id": "6781310"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,15, Granada",
+        "id": "6781311"
+    },
+    {
+        "lat": 37.2060273,
+        "lon": -3.6018022,
+        "name": "Calle BARTOLOME GARCIA,2, Granada",
+        "id": "6781312"
+    },
+    {
+        "lat": 37.2060273,
+        "lon": -3.6018022,
+        "name": "Calle BARTOLOME GARCIA,8, Granada",
+        "id": "6781315"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,20, Granada",
+        "id": "6782201"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,43, Granada",
+        "id": "6782202"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,22, Granada",
+        "id": "6782203"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,45, Granada",
+        "id": "6782204"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,24, Granada",
+        "id": "6782205"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,47, Granada",
+        "id": "6782206"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,26, Granada",
+        "id": "6782207"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,28, Granada",
+        "id": "6782209"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,51, Granada",
+        "id": "6782210"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,30, Granada",
+        "id": "6782211"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,53, Granada",
+        "id": "6782212"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,32, Granada",
+        "id": "6782213"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,55, Granada",
+        "id": "6782214"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,34, Granada",
+        "id": "6782215"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,57, Granada",
+        "id": "6782216"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,36, Granada",
+        "id": "6782217"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,59, Granada",
+        "id": "6782218"
+    },
+    
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,40, Granada",
+        "id": "6782221"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,63, Granada",
+        "id": "6782222"
+    },
+    {
+        "lat": 37.1725936,
+        "lon": -3.6821097,
+        "name": "Calle CHIPRE,4, Granada",
+        "id": "6822202"
+    },
+    {
+        "lat": 37.1626523,
+        "lon": -3.598893,
+        "name": "Avenida DE DILAR,72, Granada",
+        "id": "6824806"
+    },
+    {
+        "lat": 37.1626523,
+        "lon": -3.598893,
+        "name": "Avenida DE DILAR,76, Granada",
+        "id": "6824808"
+    },
+    {
+        "lat": 37.1626523,
+        "lon": -3.598893,
+        "name": "Avenida DE DILAR,80, Granada",
+        "id": "6824810"
+    },
+    {
+        "lat": 37.1583948,
+        "lon": -3.6008066,
+        "name": "Calle JUAN DE LA CIERVA,4, Granada",
+        "id": "6828802"
+    },
+    {
+        "lat": 37.1603385,
+        "lon": -3.6005524,
+        "name": "Avenida DE BARCELONA,28, Granada",
+        "id": "6830103"
+    },
+    
+    {
+        "lat": 37.16608115,
+        "lon": -3.6009029373668704,
+        "name": "Calle RIBERA DEL VIOLON,10, Granada",
+        "id": "6837603"
+    },
+    {
+        "lat": 37.1717615,
+        "lon": -3.6010419,
+        "name": "Calle SAN JOSE BAJA,5, Granada",
+        "id": "6843115"
+    },
+    {
+        "lat": 37.1793711,
+        "lon": -3.6007508,
+        "name": "Calle COCHERAS DE SANTA PAULA,1, Granada",
+        "id": "6852614"
+    },
+    {
+        "lat": 37.1853349,
+        "lon": -3.60212,
+        "name": "Calle ANCHA DE CAPUCHINOS,6, Granada",
+        "id": "6858111"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,2, Granada",
+        "id": "6881101"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,6, Granada",
+        "id": "6881103"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,10, Granada",
+        "id": "6881105"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,12, Granada",
+        "id": "6881106"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,14, Granada",
+        "id": "6881107"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,18, Granada",
+        "id": "6881109"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,20, Granada",
+        "id": "6881110"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,22, Granada",
+        "id": "6881111"
+    },
+    
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,26, Granada",
+        "id": "6881113"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,28, Granada",
+        "id": "6881114"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,33, Granada",
+        "id": "6881115"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,31, Granada",
+        "id": "6881116"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,27, Granada",
+        "id": "6881118"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,27, Granada",
+        "id": "6881119"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,25, Granada",
+        "id": "6881120"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,23, Granada",
+        "id": "6881121"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,21, Granada",
+        "id": "6881122"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,19, Granada",
+        "id": "6881123"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,17, Granada",
+        "id": "6881124"
+    },
+    
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,13, Granada",
+        "id": "6881126"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,11, Granada",
+        "id": "6881127"
+    },
+    
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,7, Granada",
+        "id": "6881129"
+    },
+    
+    
+    
+    
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,6, Granada",
+        "id": "6881135"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,8, Granada",
+        "id": "6881136"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,60, Granada",
+        "id": "6882001"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,1, Granada",
+        "id": "6882002"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,62, Granada",
+        "id": "6882003"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,3, Granada",
+        "id": "6882004"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,64, Granada",
+        "id": "6882005"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,5, Granada",
+        "id": "6882006"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,66, Granada",
+        "id": "6882007"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,7, Granada",
+        "id": "6882008"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,68, Granada",
+        "id": "6882009"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,9, Granada",
+        "id": "6882010"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,70, Granada",
+        "id": "6882011"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,11, Granada",
+        "id": "6882012"
+    },
+    
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,13, Granada",
+        "id": "6882014"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,74, Granada",
+        "id": "6882015"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,76, Granada",
+        "id": "6882017"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,17, Granada",
+        "id": "6882018"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,78, Granada",
+        "id": "6882019"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,19, Granada",
+        "id": "6882020"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,65, Granada",
+        "id": "6882201"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,67, Granada",
+        "id": "6882202"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,71, Granada",
+        "id": "6882204"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,73, Granada",
+        "id": "6882205"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,75, Granada",
+        "id": "6882206"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,77, Granada",
+        "id": "6882207"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,79, Granada",
+        "id": "6882208"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,81, Granada",
+        "id": "6882209"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,83, Granada",
+        "id": "6882210"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,8, Granada",
+        "id": "6882401"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,6, Granada",
+        "id": "6882402"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,8, Granada",
+        "id": "6882403"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,41, Granada",
+        "id": "6882404"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,39, Granada",
+        "id": "6882405"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,37, Granada",
+        "id": "6882406"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,35, Granada",
+        "id": "6882407"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,7, Granada",
+        "id": "6882408"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,5, Granada",
+        "id": "6882409"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,2, Granada",
+        "id": "6882410"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,4, Granada",
+        "id": "6882411"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,6, Granada",
+        "id": "6882412"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,16, Granada",
+        "id": "6882601"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,2, Granada",
+        "id": "6882602"
+    },
+    
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,7, Granada",
+        "id": "6882604"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,5, Granada",
+        "id": "6882605"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,3, Granada",
+        "id": "6882606"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,1, Granada",
+        "id": "6882607"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,3, Granada",
+        "id": "6882608"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,1, Granada",
+        "id": "6882609"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,10, Granada",
+        "id": "6882610"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,12, Granada",
+        "id": "6882611"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,14, Granada",
+        "id": "6882612"
+    },
+    {
+        "lat": 37.4816757,
+        "lon": -2.7805238,
+        "name": "Calle Navarra, 40,, Granada",
+        "id": "6927609"
+    },
+    {
+        "lat": 37.170096400000006,
+        "lon": -3.599494033710408,
+        "name": "Calle SAN ANTON,53, Granada",
+        "id": "6941104"
+    },
+    {
+        "lat": 37.1723986,
+        "lon": -3.5991701,
+        "name": "Calle ACERA DEL DARRO,12, Granada",
+        "id": "6944706"
+    },
+    {
+        "lat": 37.2061477,
+        "lon": -3.5997545,
+        "name": "Calle CUBILLO DE ARAGON,8, Granada",
+        "id": "6981201"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,4, Granada",
+        "id": "6981203"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,6, Granada",
+        "id": "6981204"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,10, Granada",
+        "id": "6981206"
+    },
+    {
+        "lat": 37.1043709,
+        "lon": -3.6458084,
+        "name": "Calle TRAFALGAR,12, Granada",
+        "id": "6981207"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,14, Granada",
+        "id": "6981208"
+    },
+    {
+        "lat": 37.1043709,
+        "lon": -3.6458084,
+        "name": "Calle TRAFALGAR,16, Granada",
+        "id": "6981209"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,18, Granada",
+        "id": "6981210"
+    },
+    {
+        "lat": 37.1043709,
+        "lon": -3.6458084,
+        "name": "Calle TRAFALGAR,20, Granada",
+        "id": "6981211"
+    },
+    
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,24, Granada",
+        "id": "6981213"
+    },
+    {
+        "lat": 37.2061249,
+        "lon": -3.5984671,
+        "name": "Calle CONDE DE TORREPALMA,11, Granada",
+        "id": "6981214"
+    },
+    {
+        "lat": 37.2061249,
+        "lon": -3.5984671,
+        "name": "Calle CONDE DE TORREPALMA,9, Granada",
+        "id": "6981215"
+    },
+    {
+        "lat": 37.2061249,
+        "lon": -3.5984671,
+        "name": "Calle CONDE DE TORREPALMA,7, Granada",
+        "id": "6981216"
+    },
+    {
+        "lat": 37.2061249,
+        "lon": -3.5984671,
+        "name": "Calle CONDE DE TORREPALMA,5, Granada",
+        "id": "6981217"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,59, Granada",
+        "id": "6981218"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,57, Granada",
+        "id": "6981219"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,55, Granada",
+        "id": "6981220"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,53, Granada",
+        "id": "6981221"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,51, Granada",
+        "id": "6981222"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,49, Granada",
+        "id": "6981223"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,47, Granada",
+        "id": "6981224"
+    },
+    
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,41, Granada",
+        "id": "6981227"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,39, Granada",
+        "id": "6981228"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,37, Granada",
+        "id": "6981229"
+    },
+    {
+        "lat": 37.2061477,
+        "lon": -3.5997545,
+        "name": "Calle CUBILLO DE ARAGON,2, Granada",
+        "id": "6981230"
+    },
+    {
+        "lat": 37.2061477,
+        "lon": -3.5997545,
+        "name": "Calle CUBILLO DE ARAGON,4, Granada",
+        "id": "6981231"
+    },
+    {
+        "lat": 37.2061477,
+        "lon": -3.5997545,
+        "name": "Calle CUBILLO DE ARAGON,6, Granada",
+        "id": "6981232"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,23, Granada",
+        "id": "6982418"
+    },
+    {
+        "lat": 37.1043709,
+        "lon": -3.6458084,
+        "name": "Calle TRAFALGAR,21, Granada",
+        "id": "6982419"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,19, Granada",
+        "id": "6982420"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,17, Granada",
+        "id": "6982421"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,15, Granada",
+        "id": "6982422"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,13, Granada",
+        "id": "6982423"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,11, Granada",
+        "id": "6982424"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,9, Granada",
+        "id": "6982425"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,7, Granada",
+        "id": "6982426"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,5, Granada",
+        "id": "6982427"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,3, Granada",
+        "id": "6982428"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,1, Granada",
+        "id": "6982429"
+    },
+    
+    
+    {
+        "lat": 37.1722655,
+        "lon": -3.5892711,
+        "name": "Calle HOTELES DE BELEN CL A,4, Granada",
+        "id": "7743102"
+    },
+    {
+        "lat": 37.1628271,
+        "lon": -3.5842339,
+        "name": "Cuesta DE VACARES,2, Granada",
+        "id": "7935276"
+    },
+    {
+        "lat": 37.1628271,
+        "lon": -3.5842339,
+        "name": "Cuesta DE VACARES,6, Granada",
+        "id": "7935277"
+    },
+    
+    {
+        "lat": 37.163401,
+        "lon": -3.5851835,
+        "name": "Cuesta DE LA PLATA,10, Granada",
+        "id": "7935280"
+    },
+    {
+        "lat": 37.1691527,
+        "lon": -3.5819496,
+        "name": "Calle SECANILLO ALTO,6, Granada",
+        "id": "8539204"
+    },
+    {
+        "lat": 37.1976433,
+        "lon": -3.6348148,
+        "name": "Calle Mani\u00f1os,10, Granada",
+        "id": "3973604"
+    },
+    
+    null
+];
+		locations.forEach(location => {
+    		const marker = L.marker([location.lat, location.lon])
+        	.addTo(map)
+        	.bindPopup(`<b>${location.name}</b>`);
+});
+	</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mapa con edificios pendientes de ITE</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+	integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+	<!-- Make sure you put this AFTER Leaflet's CSS -->
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+	integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+	crossorigin=""></script>
+
+</head>
+<body>
+	<div id="map" style="height: 98vh;"></div>
+	<script>
+		var map = L.map('map').setView([37.18817, -3.60667], 15);
+		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    		maxZoom: 19,
+    		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}).addTo(map);
+			const locations = [
+    
+    {
+        "lat": 37.2231049,
+        "lon": -3.6849243,
+        "name": "Avenida ANDALUCIA,97, Granada",
+        "id": "4667101"
+    },
+    {
+        "lat": 37.1885831,
+        "lon": -3.6192867,
+        "name": "Calle TRUCHA,4, Granada",
+        "id": "5161102"
+    },
+    {
+        "lat": 37.1783365,
+        "lon": -3.6124069,
+        "name": "Calle ARABIAL,81, Granada",
+        "id": "5848301"
+    },
+    {
+        "lat": 37.1623796,
+        "lon": -3.5481634,
+        "name": "Calle CA\u00d1AVERAL,3, Granada",
+        "id": "5850302"
+    },
+    {
+        "lat": 37.1779337,
+        "lon": -3.6103682,
+        "name": "Calle MENDEZ NU\u00d1EZ,8, Granada",
+        "id": "5850305"
+    },
+    
+    {
+        "lat": 37.1929906,
+        "lon": -3.6100728,
+        "name": "Calle LAS MADRO\u00d1ERAS,13, Granada",
+        "id": "5967301"
+    },
+    {
+        "lat": 37.1933347,
+        "lon": -3.6099635,
+        "name": "Calle YERBAGUENA,12, Granada",
+        "id": "6067804"
+    },
+    {
+        "lat": 37.1982732,
+        "lon": -4.0407603,
+        "name": "Calle EMPERATRIZ EUGENIA,19, Granada",
+        "id": "6146201"
+    },
+    {
+        "lat": 37.1924418,
+        "lon": -3.6104923,
+        "name": "Calle MANOLETE,3, Granada",
+        "id": "6166802"
+    },
+    {
+        "lat": 37.1783365,
+        "lon": -3.6124069,
+        "name": "Calle ARABIAL,36, Granada",
+        "id": "6242501"
+    },
+    
+    {
+        "lat": 37.2068206,
+        "lon": -3.6070248,
+        "name": "Calle TORREDELCAMPO,4, Granada",
+        "id": "6282301"
+    },
+    
+    {
+        "lat": 37.2058557,
+        "lon": -3.6050607,
+        "name": "Calle PUERTO LUMBRERAS,0, Granada",
+        "id": "6381224"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,28, Granada",
+        "id": "6382101"
+    },
+    {
+        "lat": 37.2675085,
+        "lon": -3.9119043,
+        "name": "Calle ELCANO,19, Granada",
+        "id": "6382102"
+    },
+    {
+        "lat": 37.2675085,
+        "lon": -3.9119043,
+        "name": "Calle ELCANO,17, Granada",
+        "id": "6382103"
+    },
+    {
+        "lat": 37.2675085,
+        "lon": -3.9119043,
+        "name": "Calle ELCANO,15, Granada",
+        "id": "6382104"
+    },
+    {
+        "lat": 36.75205835,
+        "lon": -3.5161452136679965,
+        "name": "Calle ELCANO,13, Granada",
+        "id": "6382105"
+    },
+    {
+        "lat": 36.7519817,
+        "lon": -3.516153794832682,
+        "name": "Calle ELCANO,11, Granada",
+        "id": "6382106"
+    },
+    {
+        "lat": 36.75190655,
+        "lon": -3.5161590472122026,
+        "name": "Calle ELCANO,9, Granada",
+        "id": "6382107"
+    },
+    {
+        "lat": 36.751828950000004,
+        "lon": -3.5161675990133228,
+        "name": "Calle ELCANO,7, Granada",
+        "id": "6382108"
+    },
+    {
+        "lat": 36.75175285,
+        "lon": -3.516175769839127,
+        "name": "Calle ELCANO,5, Granada",
+        "id": "6382109"
+    },
+    
+    {
+        "lat": 36.7516021,
+        "lon": -3.5161911701535447,
+        "name": "Calle ELCANO,1, Granada",
+        "id": "6382111"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,20, Granada",
+        "id": "6382117"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,22, Granada",
+        "id": "6382118"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,24, Granada",
+        "id": "6382119"
+    },
+    
+    {
+        "lat": 36.7518837,
+        "lon": -3.5159517141522034,
+        "name": "Calle ELCANO,10, Granada",
+        "id": "6382202"
+    },
+    
+    {
+        "lat": 36.7518088,
+        "lon": -3.515960182006644,
+        "name": "Calle ELCANO,8, Granada",
+        "id": "6382204"
+    },
+    
+    {
+        "lat": 37.2312978,
+        "lon": -3.7241964,
+        "name": "Calle JUAN DE AUSTRIA,11, Granada",
+        "id": "6382207"
+    },
+    {
+        "lat": 36.751656100000005,
+        "lon": -3.515976382859378,
+        "name": "Calle ELCANO,4, Granada",
+        "id": "6382208"
+    },
+    {
+        "lat": 37.2312468,
+        "lon": -3.724278,
+        "name": "Calle JUAN DE AUSTRIA,9, Granada",
+        "id": "6382209"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,22, Granada",
+        "id": "6382301"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,20, Granada",
+        "id": "6382303"
+    },
+    {
+        "lat": 37.9621922,
+        "lon": -2.4403028,
+        "name": "Calle PEDRO GUTIERREZ,7, Granada",
+        "id": "6382304"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,18, Granada",
+        "id": "6382305"
+    },
+    {
+        "lat": 37.9621922,
+        "lon": -2.4403028,
+        "name": "Calle PEDRO GUTIERREZ,5, Granada",
+        "id": "6382306"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,16, Granada",
+        "id": "6382307"
+    },
+    {
+        "lat": 37.9621922,
+        "lon": -2.4403028,
+        "name": "Calle PEDRO GUTIERREZ,3, Granada",
+        "id": "6382308"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,14, Granada",
+        "id": "6382309"
+    },
+    {
+        "lat": 37.9621922,
+        "lon": -2.4403028,
+        "name": "Calle PEDRO GUTIERREZ,1, Granada",
+        "id": "6382310"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,8, Granada",
+        "id": "6382401"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,17, Granada",
+        "id": "6382402"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,15, Granada",
+        "id": "6382403"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,11, Granada",
+        "id": "6382405"
+    },
+    {
+        "lat": 37.2311972,
+        "lon": -3.7243582,
+        "name": "Calle JUAN DE AUSTRIA,7, Granada",
+        "id": "6382406"
+    },
+    {
+        "lat": 37.231151,
+        "lon": -3.7244326,
+        "name": "Calle JUAN DE AUSTRIA,5, Granada",
+        "id": "6382407"
+    },
+    {
+        "lat": 37.2310688,
+        "lon": -3.7245644,
+        "name": "Calle JUAN DE AUSTRIA,3, Granada",
+        "id": "6382408"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle Bartolome Roldan,s/n, Granada",
+        "id": "6382409"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,14, Granada",
+        "id": "6382410"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,16, Granada",
+        "id": "6382411"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,20, Granada",
+        "id": "6382413"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,2, Granada",
+        "id": "6382414"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,4, Granada",
+        "id": "6382415"
+    },
+    {
+        "lat": 37.2059088,
+        "lon": -3.6064273,
+        "name": "Calle TARRAGONA,6, Granada",
+        "id": "6382416"
+    },
+    {
+        "lat": 37.1528143,
+        "lon": -3.6037983,
+        "name": "Calle XAUEN,33, Granada",
+        "id": "6422402"
+    },
+    {
+        "lat": 36.7455319,
+        "lon": -3.513240496807173,
+        "name": "Calle MANUEL DE FALLA,18, Granada",
+        "id": "6441008"
+    },
+    
+    {
+        "lat": 36.7532312,
+        "lon": -3.5201559201680603,
+        "name": "Calle JUAN DE AUSTRIA,20, Granada",
+        "id": "6482001"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,11, Granada",
+        "id": "6482002"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,9, Granada",
+        "id": "6482003"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,5, Granada",
+        "id": "6482005"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,3, Granada",
+        "id": "6482006"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,1, Granada",
+        "id": "6482007"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,27, Granada",
+        "id": "6482009"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,25, Granada",
+        "id": "6482010"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,23, Granada",
+        "id": "6482011"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,2, Granada",
+        "id": "6482012"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,4, Granada",
+        "id": "6482013"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,8, Granada",
+        "id": "6482015"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,10, Granada",
+        "id": "6482016"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,12, Granada",
+        "id": "6482017"
+    },
+    {
+        "lat": 36.75303575,
+        "lon": -3.520005685812389,
+        "name": "Calle JUAN DE AUSTRIA,14, Granada",
+        "id": "6482018"
+    },
+    {
+        "lat": 36.7531372,
+        "lon": -3.5200434894736845,
+        "name": "Calle JUAN DE AUSTRIA,16, Granada",
+        "id": "6482019"
+    },
+    {
+        "lat": 36.753167149999996,
+        "lon": -3.5201116987947576,
+        "name": "Calle JUAN DE AUSTRIA,18, Granada",
+        "id": "6482020"
+    },
+    
+    {
+        "lat": 36.7528214,
+        "lon": -3.5199460897905768,
+        "name": "Calle JUAN DE AUSTRIA,12, Granada",
+        "id": "6482501"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,9, Granada",
+        "id": "6482502"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,7, Granada",
+        "id": "6482503"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,5, Granada",
+        "id": "6482504"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,3, Granada",
+        "id": "6482505"
+    },
+    {
+        "lat": 37.2066951,
+        "lon": -3.6056451,
+        "name": "Calle PEDRO TERREROS,1, Granada",
+        "id": "6482506"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,21, Granada",
+        "id": "6482507"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,19, Granada",
+        "id": "6482508"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,17, Granada",
+        "id": "6482509"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,15, Granada",
+        "id": "6482510"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,4, Granada",
+        "id": "6482511"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,6, Granada",
+        "id": "6482512"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,8, Granada",
+        "id": "6482513"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,10, Granada",
+        "id": "6482514"
+    },
+    {
+        "lat": 37.206331,
+        "lon": -3.6057304,
+        "name": "Calle BARTOLOME ROLDAN,12, Granada",
+        "id": "6482515"
+    },
+    {
+        "lat": 36.7526142,
+        "lon": -3.520260796124927,
+        "name": "Calle JUAN DE AUSTRIA,8, Granada",
+        "id": "6482517"
+    },
+    {
+        "lat": 36.752706200000006,
+        "lon": -3.5201260844492026,
+        "name": "Calle JUAN DE AUSTRIA,10, Granada",
+        "id": "6482518"
+    },
+    
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,15, Granada",
+        "id": "6482802"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,13, Granada",
+        "id": "6482803"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,11, Granada",
+        "id": "6482804"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,9, Granada",
+        "id": "6482805"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,7, Granada",
+        "id": "6482806"
+    },
+    {
+        "lat": 37.2071869,
+        "lon": -3.6080039,
+        "name": "Calle LINARES,5, Granada",
+        "id": "6482807"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,37, Granada",
+        "id": "6482808"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,35, Granada",
+        "id": "6482809"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,33, Granada",
+        "id": "6482810"
+    },
+    {
+        "lat": 37.2067099,
+        "lon": -3.6050859,
+        "name": "Calle ANTON CALABRES,31, Granada",
+        "id": "6482811"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,4, Granada",
+        "id": "6482813"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,6, Granada",
+        "id": "6482814"
+    },
+    {
+        "lat": 37.2069657,
+        "lon": -3.6051378,
+        "name": "Calle LAS PERDICES,10, Granada",
+        "id": "6482816"
+    },
+    
+    
+    
+    
+    {
+        "lat": 37.154592,
+        "lon": -3.6033145,
+        "name": "Calle IMPERIO,32, Granada",
+        "id": "6524506"
+    },
+    {
+        "lat": 37.805812,
+        "lon": -2.542075,
+        "name": "Calle JARDINES,34, Granada",
+        "id": "6545811"
+    },
+    {
+        "lat": 37.1742763,
+        "lon": -3.6022923,
+        "name": "Calle PUENTEZUELAS,51, Granada",
+        "id": "6547402"
+    },
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO N\u00ba 8,, Granada",
+        "id": "6583401"
+    },
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,23, Granada",
+        "id": "6583402"
+    },
+    
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,13, Granada",
+        "id": "6583407"
+    },
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,11, Granada",
+        "id": "6583408"
+    },
+    
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,5, Granada",
+        "id": "6583415"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,3, Granada",
+        "id": "6583416"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,48, Granada",
+        "id": "6583421"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,50, Granada",
+        "id": "6583422"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,52, Granada",
+        "id": "6583423"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,54, Granada",
+        "id": "6583424"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,56, Granada",
+        "id": "6583425"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,58, Granada",
+        "id": "6583426"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,60, Granada",
+        "id": "6583427"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,62, Granada",
+        "id": "6583428"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,64, Granada",
+        "id": "6583429"
+    },
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,4, Granada",
+        "id": "6583431"
+    },
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,6, Granada",
+        "id": "6583432"
+    },
+    {
+        "lat": 37.1558745,
+        "lon": -3.6018375,
+        "name": "Calle SOL Y LUNA,0, Granada",
+        "id": "6626506"
+    },
+    {
+        "lat": 37.1558745,
+        "lon": -3.6018375,
+        "name": "Calle SOL Y LUNA,20, Granada",
+        "id": "6626509"
+    },
+    {
+        "lat": 37.170301,
+        "lon": -3.6027712,
+        "name": "Calle tejeiro, 2,, Granada",
+        "id": "6643003"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,36, Granada",
+        "id": "6681601"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,2, Granada",
+        "id": "6681602"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,6, Granada",
+        "id": "6681604"
+    },
+    
+    {
+        "lat": 37.1394388,
+        "lon": -3.6609839,
+        "name": "Calle JUAN DE LA COSA,11, Granada",
+        "id": "6681608"
+    },
+    {
+        "lat": 37.1394388,
+        "lon": -3.6609839,
+        "name": "Calle JUAN DE LA COSA,7, Granada",
+        "id": "6681610"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,9, Granada",
+        "id": "6681612"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,7, Granada",
+        "id": "6681613"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,3, Granada",
+        "id": "6681615"
+    },
+    {
+        "lat": 37.2037399,
+        "lon": -3.6039942,
+        "name": "Calle FRAY JUAN SANCHEZ COTAN,32, Granada",
+        "id": "6681617"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,4, Granada",
+        "id": "6681703"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,6, Granada",
+        "id": "6681705"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,5, Granada",
+        "id": "6681706"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,8, Granada",
+        "id": "6681707"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,10, Granada",
+        "id": "6681709"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,9, Granada",
+        "id": "6681710"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,11, Granada",
+        "id": "6681712"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,14, Granada",
+        "id": "6681713"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,13, Granada",
+        "id": "6681714"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,16, Granada",
+        "id": "6681715"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,18, Granada",
+        "id": "6681717"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,17, Granada",
+        "id": "6681718"
+    },
+    {
+        "lat": 37.2060917,
+        "lon": -3.6038172,
+        "name": "Calle CRISTOBAL QUINTERO,20, Granada",
+        "id": "6681719"
+    },
+    {
+        "lat": 37.2059484,
+        "lon": -3.6027705,
+        "name": "Calle GOMEZ RASCON,21, Granada",
+        "id": "6681722"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,4, Granada",
+        "id": "6682202"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,6, Granada",
+        "id": "6682203"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,8, Granada",
+        "id": "6682204"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,12, Granada",
+        "id": "6682206"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,14, Granada",
+        "id": "6682207"
+    },
+    {
+        "lat": 37.2071383,
+        "lon": -3.601984,
+        "name": "Calle JUAN NI\u00d1O,5, Granada",
+        "id": "6682211"
+    },
+    {
+        "lat": 37.2071383,
+        "lon": -3.601984,
+        "name": "Calle JUAN NI\u00d1O,3, Granada",
+        "id": "6682212"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,41, Granada",
+        "id": "6682214"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,39, Granada",
+        "id": "6682215"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,37, Granada",
+        "id": "6682216"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,35, Granada",
+        "id": "6682217"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,33, Granada",
+        "id": "6682218"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,31, Granada",
+        "id": "6682219"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,29, Granada",
+        "id": "6682220"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,27, Granada",
+        "id": "6682221"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,25, Granada",
+        "id": "6682222"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,2, Granada",
+        "id": "6682223"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,4, Granada",
+        "id": "6682224"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,8, Granada",
+        "id": "6682226"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,9, Granada",
+        "id": "6682801"
+    },
+    {
+        "lat": 37.2072727,
+        "lon": -3.6034394,
+        "name": "Calle SACRATIF,2, Granada",
+        "id": "6682802"
+    },
+    {
+        "lat": 37.2072727,
+        "lon": -3.6034394,
+        "name": "Calle SACRATIF,4, Granada",
+        "id": "6682804"
+    },
+    {
+        "lat": 37.2072727,
+        "lon": -3.6034394,
+        "name": "Calle SACRATIF,6, Granada",
+        "id": "6682806"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,15, Granada",
+        "id": "6682807"
+    },
+    {
+        "lat": 37.2072727,
+        "lon": -3.6034394,
+        "name": "Calle SACRATIF,8, Granada",
+        "id": "6682808"
+    },
+    
+    
+    
+    
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,36, Granada",
+        "id": "6683306"
+    },
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,38, Granada",
+        "id": "6683307"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,23, Granada",
+        "id": "6683310"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,21, Granada",
+        "id": "6683311"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,19, Granada",
+        "id": "6683312"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,17, Granada",
+        "id": "6683313"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,15, Granada",
+        "id": "6683314"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,13, Granada",
+        "id": "6683315"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,11, Granada",
+        "id": "6683316"
+    },
+    
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,7, Granada",
+        "id": "6683318"
+    },
+    
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,3, Granada",
+        "id": "6683320"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,13, Granada",
+        "id": "6683503"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,9, Granada",
+        "id": "6683505"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,7, Granada",
+        "id": "6683506"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,5, Granada",
+        "id": "6683507"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,3, Granada",
+        "id": "6683508"
+    },
+    {
+        "lat": 37.2074442,
+        "lon": -3.602731,
+        "name": "Calle MAESTRE DIEGO,1, Granada",
+        "id": "6683509"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,23, Granada",
+        "id": "6683510"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,21, Granada",
+        "id": "6683511"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,19, Granada",
+        "id": "6683512"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,17, Granada",
+        "id": "6683513"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,2, Granada",
+        "id": "6683514"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,6, Granada",
+        "id": "6683516"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,16, Granada",
+        "id": "6683521"
+    },
+    
+    {
+        "lat": 37.2078859,
+        "lon": -3.6024835,
+        "name": "Calle LOPEZ DE HARO,22, Granada",
+        "id": "6683524"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,25, Granada",
+        "id": "6683602"
+    },
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,19, Granada",
+        "id": "6683605"
+    },
+    
+    {
+        "lat": 37.2072756,
+        "lon": -3.6030953,
+        "name": "Calle TIZIANO,5, Granada",
+        "id": "6683612"
+    },
+    
+    
+    
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,10, Granada",
+        "id": "6683619"
+    },
+    
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,16, Granada",
+        "id": "6683622"
+    },
+    
+    {
+        "lat": 37.2072722,
+        "lon": -3.6035058,
+        "name": "Calle JUAN DE MEDINA,28, Granada",
+        "id": "6683628"
+    },
+    {
+        "lat": 36.749420900000004,
+        "lon": -3.515736545100907,
+        "name": "Calle ECUADOR,2, Granada",
+        "id": "6725034"
+    },
+    {
+        "lat": 37.15564,
+        "lon": -3.6020579,
+        "name": "Calle CARMEN DE ICAZA,12, Granada",
+        "id": "6725120"
+    },
+    {
+        "lat": 37.1565003,
+        "lon": -3.6010313,
+        "name": "Calle HERMANOS CARAZO,26, Granada",
+        "id": "6726224"
+    },
+    {
+        "lat": 37.1558745,
+        "lon": -3.6018375,
+        "name": "Calle SOL Y LUNA,10, Granada",
+        "id": "6726516"
+    },
+    
+    {
+        "lat": 37.1576795,
+        "lon": -3.6010231,
+        "name": "Calle LAUREADO LOPEZ MU\u00d1OZ,21, Granada",
+        "id": "6727206"
+    },
+    {
+        "lat": 37.1576795,
+        "lon": -3.6010231,
+        "name": "Calle LAUREADO LOPEZ MU\u00d1OZ,19, Granada",
+        "id": "6727207"
+    },
+    {
+        "lat": 37.1576795,
+        "lon": -3.6010231,
+        "name": "Calle LAUREADO LOPEZ MU\u00d1OZ,11, Granada",
+        "id": "6727210"
+    },
+    {
+        "lat": 36.752604250000005,
+        "lon": -3.5167440922873006,
+        "name": "Calle CONCHA ESPINA,2, Granada",
+        "id": "6727218"
+    },
+    {
+        "lat": 37.1570679,
+        "lon": -3.6003556,
+        "name": "Calle CONCHA ESPINA,24, Granada",
+        "id": "6727228"
+    },
+    
+    {
+        "lat": 37.2064069,
+        "lon": -3.6014258,
+        "name": "Calle DIEGO LORENZO,2, Granada",
+        "id": "6781301"
+    },
+    {
+        "lat": 37.2064069,
+        "lon": -3.6014258,
+        "name": "Calle DIEGO LORENZO,4, Granada",
+        "id": "6781302"
+    },
+    {
+        "lat": 37.2064069,
+        "lon": -3.6014258,
+        "name": "Calle DIEGO LORENZO,6, Granada",
+        "id": "6781303"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,9, Granada",
+        "id": "6781304"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,7, Granada",
+        "id": "6781305"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,5, Granada",
+        "id": "6781306"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,3, Granada",
+        "id": "6781307"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,1, Granada",
+        "id": "6781308"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,35, Granada",
+        "id": "6781309"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,17, Granada",
+        "id": "6781310"
+    },
+    {
+        "lat": 37.205588,
+        "lon": -3.5997191,
+        "name": "Calle RODRIGO DE TRIANA,15, Granada",
+        "id": "6781311"
+    },
+    {
+        "lat": 37.2060273,
+        "lon": -3.6018022,
+        "name": "Calle BARTOLOME GARCIA,2, Granada",
+        "id": "6781312"
+    },
+    {
+        "lat": 37.2060273,
+        "lon": -3.6018022,
+        "name": "Calle BARTOLOME GARCIA,8, Granada",
+        "id": "6781315"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,20, Granada",
+        "id": "6782201"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,43, Granada",
+        "id": "6782202"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,22, Granada",
+        "id": "6782203"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,45, Granada",
+        "id": "6782204"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,24, Granada",
+        "id": "6782205"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,47, Granada",
+        "id": "6782206"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,26, Granada",
+        "id": "6782207"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,28, Granada",
+        "id": "6782209"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,51, Granada",
+        "id": "6782210"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,30, Granada",
+        "id": "6782211"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,53, Granada",
+        "id": "6782212"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,32, Granada",
+        "id": "6782213"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,55, Granada",
+        "id": "6782214"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,34, Granada",
+        "id": "6782215"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,57, Granada",
+        "id": "6782216"
+    },
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,36, Granada",
+        "id": "6782217"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,59, Granada",
+        "id": "6782218"
+    },
+    
+    {
+        "lat": 37.2072882,
+        "lon": -3.6001719,
+        "name": "Calle DIEGO DE ARANA,40, Granada",
+        "id": "6782221"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,63, Granada",
+        "id": "6782222"
+    },
+    {
+        "lat": 37.1725936,
+        "lon": -3.6821097,
+        "name": "Calle CHIPRE,4, Granada",
+        "id": "6822202"
+    },
+    {
+        "lat": 37.1626523,
+        "lon": -3.598893,
+        "name": "Avenida DE DILAR,72, Granada",
+        "id": "6824806"
+    },
+    {
+        "lat": 37.1626523,
+        "lon": -3.598893,
+        "name": "Avenida DE DILAR,76, Granada",
+        "id": "6824808"
+    },
+    {
+        "lat": 37.1626523,
+        "lon": -3.598893,
+        "name": "Avenida DE DILAR,80, Granada",
+        "id": "6824810"
+    },
+    {
+        "lat": 37.1583948,
+        "lon": -3.6008066,
+        "name": "Calle JUAN DE LA CIERVA,4, Granada",
+        "id": "6828802"
+    },
+    {
+        "lat": 37.1603385,
+        "lon": -3.6005524,
+        "name": "Avenida DE BARCELONA,28, Granada",
+        "id": "6830103"
+    },
+    
+    {
+        "lat": 37.16608115,
+        "lon": -3.6009029373668704,
+        "name": "Calle RIBERA DEL VIOLON,10, Granada",
+        "id": "6837603"
+    },
+    {
+        "lat": 37.1717615,
+        "lon": -3.6010419,
+        "name": "Calle SAN JOSE BAJA,5, Granada",
+        "id": "6843115"
+    },
+    {
+        "lat": 37.1793711,
+        "lon": -3.6007508,
+        "name": "Calle COCHERAS DE SANTA PAULA,1, Granada",
+        "id": "6852614"
+    },
+    {
+        "lat": 37.1853349,
+        "lon": -3.60212,
+        "name": "Calle ANCHA DE CAPUCHINOS,6, Granada",
+        "id": "6858111"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,2, Granada",
+        "id": "6881101"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,6, Granada",
+        "id": "6881103"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,10, Granada",
+        "id": "6881105"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,12, Granada",
+        "id": "6881106"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,14, Granada",
+        "id": "6881107"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,18, Granada",
+        "id": "6881109"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,20, Granada",
+        "id": "6881110"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,22, Granada",
+        "id": "6881111"
+    },
+    
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,26, Granada",
+        "id": "6881113"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,28, Granada",
+        "id": "6881114"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,33, Granada",
+        "id": "6881115"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,31, Granada",
+        "id": "6881116"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,27, Granada",
+        "id": "6881118"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,27, Granada",
+        "id": "6881119"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,25, Granada",
+        "id": "6881120"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,23, Granada",
+        "id": "6881121"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,21, Granada",
+        "id": "6881122"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,19, Granada",
+        "id": "6881123"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,17, Granada",
+        "id": "6881124"
+    },
+    
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,13, Granada",
+        "id": "6881126"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,11, Granada",
+        "id": "6881127"
+    },
+    
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,7, Granada",
+        "id": "6881129"
+    },
+    
+    
+    
+    
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,6, Granada",
+        "id": "6881135"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,8, Granada",
+        "id": "6881136"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,60, Granada",
+        "id": "6882001"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,1, Granada",
+        "id": "6882002"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,62, Granada",
+        "id": "6882003"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,3, Granada",
+        "id": "6882004"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,64, Granada",
+        "id": "6882005"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,5, Granada",
+        "id": "6882006"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,66, Granada",
+        "id": "6882007"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,7, Granada",
+        "id": "6882008"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,68, Granada",
+        "id": "6882009"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,9, Granada",
+        "id": "6882010"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,70, Granada",
+        "id": "6882011"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,11, Granada",
+        "id": "6882012"
+    },
+    
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,13, Granada",
+        "id": "6882014"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,74, Granada",
+        "id": "6882015"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,76, Granada",
+        "id": "6882017"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,17, Granada",
+        "id": "6882018"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,78, Granada",
+        "id": "6882019"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,19, Granada",
+        "id": "6882020"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,65, Granada",
+        "id": "6882201"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,67, Granada",
+        "id": "6882202"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,71, Granada",
+        "id": "6882204"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,73, Granada",
+        "id": "6882205"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,75, Granada",
+        "id": "6882206"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,77, Granada",
+        "id": "6882207"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,79, Granada",
+        "id": "6882208"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,81, Granada",
+        "id": "6882209"
+    },
+    {
+        "lat": 37.2070881,
+        "lon": -3.6019836,
+        "name": "Calle MARTIN PINZON,83, Granada",
+        "id": "6882210"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,8, Granada",
+        "id": "6882401"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,6, Granada",
+        "id": "6882402"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,8, Granada",
+        "id": "6882403"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,41, Granada",
+        "id": "6882404"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,39, Granada",
+        "id": "6882405"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,37, Granada",
+        "id": "6882406"
+    },
+    {
+        "lat": 37.2030077,
+        "lon": -3.6002651,
+        "name": "Calle HENRIQUEZ DE JORQUERA,35, Granada",
+        "id": "6882407"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,7, Granada",
+        "id": "6882408"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,5, Granada",
+        "id": "6882409"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,2, Granada",
+        "id": "6882410"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,4, Granada",
+        "id": "6882411"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,6, Granada",
+        "id": "6882412"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,16, Granada",
+        "id": "6882601"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle SOTO DE ROJAS,2, Granada",
+        "id": "6882602"
+    },
+    
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,7, Granada",
+        "id": "6882604"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,5, Granada",
+        "id": "6882605"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,3, Granada",
+        "id": "6882606"
+    },
+    {
+        "lat": 37.2067323,
+        "lon": -3.6008018,
+        "name": "Calle JERONIMO DE CARCEL,1, Granada",
+        "id": "6882607"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,3, Granada",
+        "id": "6882608"
+    },
+    {
+        "lat": 37.2064666,
+        "lon": -3.6013314,
+        "name": "Calle JERONIMO DE ALISEDA,1, Granada",
+        "id": "6882609"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,10, Granada",
+        "id": "6882610"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,12, Granada",
+        "id": "6882611"
+    },
+    {
+        "lat": 37.2063702,
+        "lon": -3.601377,
+        "name": "Calle CRISTOBAL CARO,14, Granada",
+        "id": "6882612"
+    },
+    {
+        "lat": 37.4816757,
+        "lon": -2.7805238,
+        "name": "Calle Navarra, 40,, Granada",
+        "id": "6927609"
+    },
+    {
+        "lat": 37.170096400000006,
+        "lon": -3.599494033710408,
+        "name": "Calle SAN ANTON,53, Granada",
+        "id": "6941104"
+    },
+    {
+        "lat": 37.1723986,
+        "lon": -3.5991701,
+        "name": "Calle ACERA DEL DARRO,12, Granada",
+        "id": "6944706"
+    },
+    {
+        "lat": 37.2061477,
+        "lon": -3.5997545,
+        "name": "Calle CUBILLO DE ARAGON,8, Granada",
+        "id": "6981201"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,4, Granada",
+        "id": "6981203"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,6, Granada",
+        "id": "6981204"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,10, Granada",
+        "id": "6981206"
+    },
+    {
+        "lat": 37.1043709,
+        "lon": -3.6458084,
+        "name": "Calle TRAFALGAR,12, Granada",
+        "id": "6981207"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,14, Granada",
+        "id": "6981208"
+    },
+    {
+        "lat": 37.1043709,
+        "lon": -3.6458084,
+        "name": "Calle TRAFALGAR,16, Granada",
+        "id": "6981209"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,18, Granada",
+        "id": "6981210"
+    },
+    {
+        "lat": 37.1043709,
+        "lon": -3.6458084,
+        "name": "Calle TRAFALGAR,20, Granada",
+        "id": "6981211"
+    },
+    
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,24, Granada",
+        "id": "6981213"
+    },
+    {
+        "lat": 37.2061249,
+        "lon": -3.5984671,
+        "name": "Calle CONDE DE TORREPALMA,11, Granada",
+        "id": "6981214"
+    },
+    {
+        "lat": 37.2061249,
+        "lon": -3.5984671,
+        "name": "Calle CONDE DE TORREPALMA,9, Granada",
+        "id": "6981215"
+    },
+    {
+        "lat": 37.2061249,
+        "lon": -3.5984671,
+        "name": "Calle CONDE DE TORREPALMA,7, Granada",
+        "id": "6981216"
+    },
+    {
+        "lat": 37.2061249,
+        "lon": -3.5984671,
+        "name": "Calle CONDE DE TORREPALMA,5, Granada",
+        "id": "6981217"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,59, Granada",
+        "id": "6981218"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,57, Granada",
+        "id": "6981219"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,55, Granada",
+        "id": "6981220"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,53, Granada",
+        "id": "6981221"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,51, Granada",
+        "id": "6981222"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,49, Granada",
+        "id": "6981223"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,47, Granada",
+        "id": "6981224"
+    },
+    
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,41, Granada",
+        "id": "6981227"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,39, Granada",
+        "id": "6981228"
+    },
+    {
+        "lat": 37.2061026,
+        "lon": -3.600261,
+        "name": "Calle BERMUDEZ DE PEDRAZA,37, Granada",
+        "id": "6981229"
+    },
+    {
+        "lat": 37.2061477,
+        "lon": -3.5997545,
+        "name": "Calle CUBILLO DE ARAGON,2, Granada",
+        "id": "6981230"
+    },
+    {
+        "lat": 37.2061477,
+        "lon": -3.5997545,
+        "name": "Calle CUBILLO DE ARAGON,4, Granada",
+        "id": "6981231"
+    },
+    {
+        "lat": 37.2061477,
+        "lon": -3.5997545,
+        "name": "Calle CUBILLO DE ARAGON,6, Granada",
+        "id": "6981232"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,23, Granada",
+        "id": "6982418"
+    },
+    {
+        "lat": 37.1043709,
+        "lon": -3.6458084,
+        "name": "Calle TRAFALGAR,21, Granada",
+        "id": "6982419"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,19, Granada",
+        "id": "6982420"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,17, Granada",
+        "id": "6982421"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,15, Granada",
+        "id": "6982422"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,13, Granada",
+        "id": "6982423"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,11, Granada",
+        "id": "6982424"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,9, Granada",
+        "id": "6982425"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,7, Granada",
+        "id": "6982426"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,5, Granada",
+        "id": "6982427"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,3, Granada",
+        "id": "6982428"
+    },
+    {
+        "lat": 37.2981456,
+        "lon": -3.1382878,
+        "name": "Calle TRAFALGAR,1, Granada",
+        "id": "6982429"
+    },
+    
+    
+    {
+        "lat": 37.1722655,
+        "lon": -3.5892711,
+        "name": "Calle HOTELES DE BELEN CL A,4, Granada",
+        "id": "7743102"
+    },
+    {
+        "lat": 37.1628271,
+        "lon": -3.5842339,
+        "name": "Cuesta DE VACARES,2, Granada",
+        "id": "7935276"
+    },
+    {
+        "lat": 37.1628271,
+        "lon": -3.5842339,
+        "name": "Cuesta DE VACARES,6, Granada",
+        "id": "7935277"
+    },
+    
+    {
+        "lat": 37.163401,
+        "lon": -3.5851835,
+        "name": "Cuesta DE LA PLATA,10, Granada",
+        "id": "7935280"
+    },
+    {
+        "lat": 37.1691527,
+        "lon": -3.5819496,
+        "name": "Calle SECANILLO ALTO,6, Granada",
+        "id": "8539204"
+    },
+    {
+        "lat": 37.1976433,
+        "lon": -3.6348148,
+        "name": "Calle Mani\u00f1os,10, Granada",
+        "id": "3973604"
+    },
+    
+    null
+];
+		locations.forEach(location => {
+    		const marker = L.marker([location.lat, location.lon])
+        	.addTo(map)
+        	.bindPopup(`<b>${location.name}</b>`);
+});
+	</script>
+</body>
+</html>
